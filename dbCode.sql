@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS public.suppliers
 
 CREATE TABLE IF NOT EXISTS public.tovars
 (
-    articul character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    article character varying(20) COLLATE pg_catalog."default" NOT NULL,
     name character varying(200) COLLATE pg_catalog."default" NOT NULL,
     unit_id integer NOT NULL,
     cost integer NOT NULL,
@@ -69,9 +69,9 @@ CREATE TABLE IF NOT EXISTS public.tovars
     cathegory_id integer NOT NULL,
     sale integer NOT NULL,
     count integer NOT NULL,
-    "desc" character varying(300) COLLATE pg_catalog."default" NOT NULL,
+    descryption character varying(300) COLLATE pg_catalog."default" NOT NULL,
     photo character varying(300) COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT tovars_pkey PRIMARY KEY (articul)
+    CONSTRAINT tovars_pkey PRIMARY KEY (article)
 );
 
 CREATE TABLE IF NOT EXISTS public.units
@@ -107,7 +107,7 @@ ALTER TABLE IF EXISTS public.order_tovars
 
 ALTER TABLE IF EXISTS public.order_tovars
     ADD CONSTRAINT tovar FOREIGN KEY (tovar_articul)
-    REFERENCES public.tovars (articul) MATCH SIMPLE
+    REFERENCES public.tovars (article) MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION;
 
